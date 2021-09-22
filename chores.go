@@ -45,7 +45,7 @@ func mainEmail() {
 	gmail_user := goDotEnvVariable("GMAIL_USER")
 	gmail_pass := goDotEnvVariable("GMAIL_PASS")
 	jonathan_email := goDotEnvVariable("JONATHAN_EMAIL")
-	christiana_email := goDotEnvVariable("CHRISTIAN_EMAIL")
+	christiana_email := goDotEnvVariable("CHRISTIANA_EMAIL")
 	sarah_email := goDotEnvVariable("SARAH_EMAIL")
 	paul_email := goDotEnvVariable("PAUL_EMAIL")
 
