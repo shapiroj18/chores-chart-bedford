@@ -34,7 +34,8 @@ func goDotEnvVariable(key string) string {
 	val, ok := os.LookupEnv(key)
 
 	if !ok {
-		log.Fatal("Missing key")
+		error_str := fmt.Sprintf("Missing key: %s", key)
+		log.Fatal(error_str)
 	}
 
 	return val
