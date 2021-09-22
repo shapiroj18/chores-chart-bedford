@@ -8,14 +8,14 @@ import (
 	"github.com/joho/godotenv"
 )
 
-func SendEmail(from, password string, message byte) {
+func SendEmail(from, password string, to []string, message []byte) {
 	auth := smtp.PlainAuth("", from, password, "smtp.gmail.com")
 	err := smtp.SendMail(
-		"smtp.gmail.com",
+		"smtp.gmail.com:587",
 		auth,
 		from,
-		[]string{"shapiroj18@gmail.com"},
-		[]byte{message},
+		to,
+		message,
 	)
 
 	if err != nil {
@@ -44,6 +44,8 @@ func Adder(a, b int) int {
 }
 
 func main() {
-	goDotEnvVariable("STRONGEST_AVENGER")
-	// SendEmail()
+	gmail_user := goDotEnvVariable("GMAIL_USER")
+	gmail_pass := goDotEnvVariable("GMAIL_PASS")
+	jonathan_email, christiana_email := goDotEnvVariable("JONATHAN_EMAIL"), goDotEnvVariable("CHRISTIANA_EMAIL")
+	SendEmail(gmail_user, gmail_pass, []string{jonathan_email, christiana_email}, []byte("test email working"))
 }
